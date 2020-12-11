@@ -11,6 +11,14 @@
 %ignore "";
 %define %unignore %rename("%s") %enddef
 
+ // Convert C++ exceptions to Java exceptions
+%exception {
+  try {
+    $action
+  }
+  SWIG_CATCH_STDEXCEPT
+}
+
 %unignore foo;
 namespace foo {
 %unignore fooHello(int);
@@ -33,5 +41,7 @@ namespace foo {
 
 // Process symbols in header
 %include "foo/Foo.hpp"
+
+%exception; // Turn off exception conversion
 
 %unignore ""; // unignore all
