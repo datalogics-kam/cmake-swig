@@ -2,6 +2,7 @@
 
 %include "std_string.i"
 %include "base.i"
+%include "exception.i"
 
 // Add necessary symbols to generated header
 %{
