@@ -6,7 +6,7 @@ case X$UNAME_S in
    XAIX)
     # for AIX
 mkdir -p build_aix && \
-	conan install . -if build_aix -pr gcc-8-aix71-64 -s build_type=Debug --build missing --update  "$@" \
+	conan install . -if build_aix -pr gcc-8-aix71-64 -s build_type=Release --build missing --update  "$@" \
 	&& conan build . -bf build_aix
     ;;
    XLinux)
